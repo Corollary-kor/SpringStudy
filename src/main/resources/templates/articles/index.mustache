@@ -26,9 +26,9 @@
     <!--    </tr>-->
     {{#articleList}}
         <tr>
-            <th scope="col">{{id}}</th>
-            <th scope="col">{{title}}</th>
-            <th scope="col">{{content}}</th>
+            <th>{{id}}</th>
+            <td><a href="/articles/{{id}}">{{title}}</a> </td>
+            <td>{{content}}</td>
             <!--        <th scope="col">Handle</th>-->
         </tr>
     {{/articleList}}
@@ -36,4 +36,7 @@
 
     </tbody>
 </table>
+
+<a href="/articles/new">New article</a>
+
 {{>layouts/footer}}
