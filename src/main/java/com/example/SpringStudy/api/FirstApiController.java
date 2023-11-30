@@ -1,4 +1,4 @@
-package com.example.SpringStudy.springstudy.api;
+package com.example.SpringStudy.api;
 
 
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.example.SpringStudy.springstudy.api;
+package com.example.SpringStudy.api;
 
 import com.example.SpringStudy.dto.ArticleForm;
 import com.example.SpringStudy.entity.Article;
