@@ -24,12 +24,39 @@
         </form>
 
     </div>
-    <script>
+
+</div>
+<script>
         {
             const commentCreateBtn = document.querySelector("#comment-create-btn");
             commentCreateBtn.addEventListener("click", function(){
-                console.log("버튼을 클릭했습니다.");
-                });
+            //    console.log("버튼을 클릭했습니다.");
+            // 새 댓글 객체 생성
+            const comment ={
+            //새 댓글의 닉네임
+            nickname: document.querySelector("#new-comment-nickname").value,
+            // 새 댓글의 본문
+            body: document.querySelector("#new-comment-body").value,
+            //부모 게시글의 id
+            articleId: document.querySelector("#new-comment-article-id").value
+            };
+             // 댓글 객체 출력
+            console.log(comment);
+            //fetch() - 비동기 통신을 위한 API
+            const url = "/api/articles/" + comment.articleId + "/comments";
+            fetch(url, {
+            method: "POST", // POST 요청
+            headers: {      // 전송 본문의 데이터 타입(JSON)의 정보
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify(comment) // comment 객체를 JSON 문자열로 변환해 전송
+            }).then(response => {
+            const msg = (response.ok) ? "댓글이 등록 됐습니다." : "댓글 등록 실패 ..";
+            alert(msg);
+            window.location.reload();
+            });
+        });
         }
-    </script>
-</div>
+</script>
+
+
